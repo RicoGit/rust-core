@@ -1,0 +1,6 @@
+[package]
+name = "rust-core"
+version = "0.1.0"
+authors = ["C.Solovev <constantine.solovev@gmail.com>"]
+
+[dependencies]
