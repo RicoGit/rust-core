@@ -1,3 +1,8 @@
+
+mod stack;
+
 fn main() {
-    println!("Hello, world!");
+
+    stack::demonstrate_simple_stack();
+
 }
