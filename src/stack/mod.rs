@@ -1,9 +1,9 @@
 
 pub mod stack;
 
-pub fn demonstrate_simple_stack() {
+pub fn demo_simple_stack() {
 
-    let mut stack = stack::stack::SimpleStack::new();
+    let mut stack = stack::SimpleStack::new();
 
     stack.push(10);
     stack.push(11);
