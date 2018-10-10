@@ -1,8 +1,7 @@
-
-use std::ptr::NonNull;
 use core::alloc::Layout;
 use std::alloc::{Alloc, Global};
 use std::mem;
+use std::ptr::NonNull;
 
 #[allow(dead_code)]
 pub fn alloc(size: usize) -> Option<NonNull<u8>> {
@@ -15,7 +14,7 @@ pub fn alloc(size: usize) -> Option<NonNull<u8>> {
 
 #[allow(dead_code)]
 pub fn dealloc(ptr: NonNull<u8>, size: usize) {
-    unsafe  {
+    unsafe {
         Layout::from_size_align(size, mem::align_of::<u8>())
             .ok()
             .map(|l| Global.dealloc(ptr, l));
