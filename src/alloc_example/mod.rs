@@ -18,7 +18,7 @@ pub fn demo_str_passing(string: &str) {
             unsafe {
                 println!("Write string to memory by address={:?}", ptr.as_ptr());
                 for (idx, byte) in string.as_bytes().iter().enumerate() {
-                    ptr::write(ptr.as_ptr().offset(idx as isize), *byte)
+                    ptr::write(ptr.as_ptr().add(idx), *byte)
                 }
 
                 let string = String::from_raw_parts(ptr.as_ptr(), str_len, str_len);

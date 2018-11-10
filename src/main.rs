@@ -1,16 +1,14 @@
 #![feature(alloc)]
 #![feature(allocator_api)]
 
-extern crate core;
 extern crate alloc;
+extern crate core;
 
-mod stack;
+mod algorithms;
 mod alloc_example;
 
 fn main() {
-
-//    stack::demo_simple_stack();
+    algorithms::stack::demo_simple_stack();
 
     alloc_example::demo_str_passing("test string")
-
 }

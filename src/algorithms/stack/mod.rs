@@ -1,9 +1,9 @@
 #![allow(dead_code)]
 
-pub mod stack;
+pub mod naive_stack;
 
 pub fn demo_simple_stack() {
-    let mut stack = stack::SimpleStack::new();
+    let mut stack = naive_stack::SimpleStack::new();
 
     stack.push(10);
     stack.push(11);

@@ -1,3 +1,5 @@
+//! Very naive stack implementation.
+
 pub struct SimpleStack {
     stack: [i32; 10],
     head_ptr: usize,
