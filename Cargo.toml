@@ -2,6 +2,7 @@
 name = "rust-core"
 version = "0.1.0"
 authors = ["C.Solovev <constantine.solovev@gmail.com>"]
+edtition="2018"
 
 [dependencies]
 error-chain = "0.12.0"

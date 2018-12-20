@@ -1,4 +1,3 @@
-
 // We'll put our errors in an `errors` module, and other modules in
 // this crate will `use errors::*;` to get access to everything
 // `error_chain!` creates.
@@ -30,7 +29,6 @@ mod example {
     use super::errors::*;
     use std::fs::File;
 
-
     /// Returns chained error with output like this:
     /// ```
     /// Error: unable to invoke 'foo()'
@@ -42,20 +40,18 @@ mod example {
         foo().chain_err(|| "unable to invoke 'foo()'")?;
         Ok(())
     }
-    
+
     fn foo() -> Result<String> {
         bar("file name")
             .map(|_| "str".to_owned())
             .chain_err(|| ErrorKind::FooErr("bar was fail"))
-        
     }
 
     fn bar(file: &str) -> Result<File> {
         use std::fs::File;
 
         // This operation will fail
-        File::open(file)
-            .chain_err(|| ErrorKind::BarErr("unable to open file"))
+        File::open(file).chain_err(|| ErrorKind::BarErr("unable to open file"))
     }
 
 }
