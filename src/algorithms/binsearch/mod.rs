@@ -102,15 +102,22 @@ mod tests {
     }
 
     #[test]
-    fn binary_search_fro_rotated_arr_test() {
+    fn binary_search_for_rotated_arr_test() {
         let rotated_arr = [12, 13, 15, 1, 3, 5, 7, 8, 8];
 
         assert_eq!(InsertionPoint(0), binary_search_fro_rotated_arr(&[], 0));
-        assert_eq!(InsertionPoint(3), binary_search_fro_rotated_arr(&rotated_arr, 0));
-        assert_eq!(InsertionPoint(rotated_arr.len() - 1),
+        assert_eq!(
+            InsertionPoint(3),
+            binary_search_fro_rotated_arr(&rotated_arr, 0)
+        );
+        assert_eq!(
+            InsertionPoint(rotated_arr.len() - 1),
             binary_search_fro_rotated_arr(&rotated_arr, 10)
         );
-        assert_eq!(InsertionPoint(3), binary_search_fro_rotated_arr(&rotated_arr, 20));
+        assert_eq!(
+            InsertionPoint(3),
+            binary_search_fro_rotated_arr(&rotated_arr, 20)
+        );
         assert_eq!(Found(3), binary_search_fro_rotated_arr(&rotated_arr, 1));
         assert_eq!(Found(6), binary_search_fro_rotated_arr(&rotated_arr, 7));
         assert_eq!(Found(7), binary_search_fro_rotated_arr(&rotated_arr, 8));
@@ -120,7 +127,10 @@ mod tests {
 
         assert_eq!(InsertionPoint(0), binary_search(&normal_arr, 0));
         assert_eq!(InsertionPoint(6), binary_search(&normal_arr, 10));
-        assert_eq!(InsertionPoint(normal_arr.len()), binary_search(&normal_arr, 20));
+        assert_eq!(
+            InsertionPoint(normal_arr.len()),
+            binary_search(&normal_arr, 20)
+        );
         assert_eq!(Found(0), binary_search(&normal_arr, 1));
         assert_eq!(Found(3), binary_search(&normal_arr, 7));
         assert_eq!(Found(4), binary_search(&normal_arr, 8));

@@ -53,7 +53,7 @@ impl<T: Ord + Clone + Debug> Heap<T> {
     // Private methods
     //
 
-    /// Takes an item at `idx` and either moves it up the heap if item less than
+    /// (sift up) Takes an item at `idx` and either moves it up the heap if item less than
     /// it's parent or does nothing otherwise.
     fn lift_up(&mut self, idx: usize) {
         if idx == 0 {
@@ -71,7 +71,7 @@ impl<T: Ord + Clone + Debug> Heap<T> {
         self.lift_up(parent_idx);
     }
 
-    /// Takes an item at `idx` and either moves it down the heap if item grater
+    /// (sift down) Takes an item at `idx` and either moves it down the heap if item grater
     /// than it's parent or does nothing otherwise.
     fn pull_down(&mut self, parent_idx: usize) {
         let left_child_idx = ((parent_idx + 1) * 2) - 1;
