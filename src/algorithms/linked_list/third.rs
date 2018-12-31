@@ -44,7 +44,6 @@ impl<T> List<T> {
             next: self.head.as_ref().map(|n| &**n),
         }
     }
-    
 }
 
 impl<T> Drop for List<T> {
