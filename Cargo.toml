@@ -5,4 +5,5 @@ authors = ["C.Solovev <constantine.solovev@gmail.com>"]
 edtition="2018"
 
 [dependencies]
-error-chain = "0.12.0"
+error-chain = "0.12.4" # not supported anymore
+thiserror = "1.0.38"

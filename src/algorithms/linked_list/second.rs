@@ -200,5 +200,4 @@ mod tests {
         assert_eq!(iter.next(), Some(&mut 2));
         assert_eq!(iter.next(), Some(&mut 1));
     }
-
 }

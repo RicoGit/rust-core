@@ -141,5 +141,4 @@ mod tests {
         expected_vec.sort();
         assert_eq!(sorted_vector, expected_vec)
     }
-
 }

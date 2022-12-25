@@ -234,5 +234,4 @@ mod tests {
         assert_eq!(iter.next_back(), None);
         assert_eq!(iter.next(), None);
     }
-
 }

@@ -1,5 +1,5 @@
-#![feature(alloc)]
 #![feature(allocator_api)]
+#![feature(slice_ptr_get)]
 
 extern crate alloc;
 extern crate core;
@@ -13,8 +13,6 @@ mod errors_chain_example;
 fn main() {
     algorithms::stack::demo_simple_stack();
     algorithms::heap::demo_vector_based_heap();
-
-    alloc_example::demo_str_passing("test string");
 
     if let Err(ref e) = errors_chain_example::run() {
         use error_chain::ChainedError;
