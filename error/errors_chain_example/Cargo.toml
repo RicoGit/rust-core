@@ -1,0 +1,10 @@
+[package]
+name = "errors_chain_example"
+version = "0.1.0"
+authors = ["C.Solovev <constantine.solovev@gmail.com>"]
+edition = "2021"
+
+
+[dependencies]
+error-chain = "0.12.4" # not supported anymore
+

@@ -1,9 +1,11 @@
-[package]
-name = "rust-core"
-version = "0.1.0"
-authors = ["C.Solovev <constantine.solovev@gmail.com>"]
-edtition="2018"
+[workspace]
+resolver = "2"
+members = [
+    "algorithms",
+    "alloc_example",
+    "error/errors_chain_example"
+]
 
-[dependencies]
-error-chain = "0.12.4" # not supported anymore
-thiserror = "1.0.38"
+[profile.release]
+debug = true
+

@@ -2,7 +2,7 @@
 
 pub mod vector_based_heap;
 
-use algorithms::heap::vector_based_heap::Heap;
+use crate::heap::vector_based_heap::Heap;
 
 pub fn demo_vector_based_heap() {
     let mut heap = Heap::with_capacity(10);

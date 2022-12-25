@@ -5,7 +5,7 @@
 // `error_chain!` creates.
 mod errors {
     // Create the Error, ErrorKind, ResultExt, and Result types
-    error_chain! {
+    error_chain::error_chain! {
 
         // Define additional `ErrorKind` variants.  Define custom responses with the
         // `description` and `display` calls.
@@ -29,6 +29,7 @@ mod errors {
 mod example {
 
     use super::errors::*;
+    // use super::errors::{Result, ErrorKind};
     use std::fs::File;
 
     /// Returns chained error with output like this:

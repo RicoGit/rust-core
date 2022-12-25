@@ -56,9 +56,8 @@ impl Drop for List {
     }
 }
 
+#[cfg(test)]
 mod tests {
-    use super::List;
-
     #[test]
     fn basics() {
         let mut list = List::new();
