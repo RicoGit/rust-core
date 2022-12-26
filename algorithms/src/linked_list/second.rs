@@ -119,6 +119,7 @@ impl<'a, T> Iterator for IterMut<'a, T> {
 
 #[cfg(test)]
 mod tests {
+    use crate::linked_list::second::List;
 
     #[test]
     fn basics() {

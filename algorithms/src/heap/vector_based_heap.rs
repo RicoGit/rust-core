@@ -106,7 +106,7 @@ impl<T: Ord + Clone + Debug> Heap<T> {
 
 #[cfg(test)]
 mod tests {
-    use algorithms::heap::vector_based_heap::Heap;
+    use crate::heap::vector_based_heap::Heap;
 
     #[test]
     fn heap_test() {

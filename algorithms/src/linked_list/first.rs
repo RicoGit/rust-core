@@ -58,6 +58,8 @@ impl Drop for List {
 
 #[cfg(test)]
 mod tests {
+    use crate::linked_list::first::List;
+
     #[test]
     fn basics() {
         let mut list = List::new();
