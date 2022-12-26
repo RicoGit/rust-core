@@ -3,7 +3,8 @@ resolver = "2"
 members = [
     "algorithms",
     "alloc_example",
-    "error/errors_chain_example"
+    "error/errors_chain_example",
+    "macro"
 ]
 
 [profile.release]
