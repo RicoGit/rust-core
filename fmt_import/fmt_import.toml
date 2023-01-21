@@ -1,0 +1,1 @@
+ignore = ["/.git", "/target", "/.idea"] # use .gitignore format 

@@ -3,6 +3,7 @@ resolver = "2"
 members = [
     "algorithms",
     "alloc_example",
+    "fmt_import",
     "error/errors_chain_example",
     "macro"
 ]
