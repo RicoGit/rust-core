@@ -7,9 +7,7 @@ expression: processor.find_all_imports(content)
         start_idx: 1,
         end_index: 1,
         imports: [
-            SingleLine {
-                idx: 1,
-            },
+            "            use crate::import_manager::Import::{MultiLine, SingleLine};",
         ],
     },
 ]

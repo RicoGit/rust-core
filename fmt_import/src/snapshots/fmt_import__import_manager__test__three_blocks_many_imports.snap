@@ -7,43 +7,27 @@ expression: processor.find_all_imports(content)
         start_idx: 1,
         end_index: 3,
         imports: [
-            SingleLine {
-                idx: 1,
-            },
-            SingleLine {
-                idx: 2,
-            },
-            SingleLine {
-                idx: 3,
-            },
+            "            use crate::import_manager::ImportProcessor;",
+            "            use crate::Config;",
+            "            use eyre::{Context, Result};",
         ],
     },
     ImportBlock {
         start_idx: 6,
         end_index: 12,
         imports: [
-            SingleLine {
-                idx: 6,
-            },
-            SingleLine {
-                idx: 8,
-            },
-            MultiLine {
-                start_idx: 9,
-                end_idx: 12,
-            },
+            "                use ignore::gitignore::{Gitignore, GitignoreBuilder};",
+            "                use std::path::{Path, PathBuf};",
+            "                use crate::import_manager::Import::MultiLine;",
+            "                use crate::import_manager::Import::SingleLine;",
         ],
     },
     ImportBlock {
         start_idx: 16,
         end_index: 17,
         imports: [
-            SingleLine {
-                idx: 16,
-            },
-            SingleLine {
-                idx: 17,
-            },
+            "                use std::ffi::OsStr;",
+            "                use ignore::Walk;",
         ],
     },
 ]
