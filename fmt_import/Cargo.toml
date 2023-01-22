@@ -14,5 +14,6 @@ serde_derive = "1"
 eyre = "0.6"
 itertools = "0.10"
 ahash = "0.8"
+insta = "1.26"
 
 
