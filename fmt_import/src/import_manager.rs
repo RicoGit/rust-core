@@ -68,11 +68,11 @@ impl ImportProcessor {
 
             if inside_import_block && start_idx_of_multiline_import.is_none() {
                 non_import_lines_cnt += 1;
-                if non_import_lines_cnt == 3 {
+                if non_import_lines_cnt == 2 {
                     // end of import block
                     inside_import_block = false;
                     non_import_lines_cnt = 0;
-                    import_block.end_index = idx - 3;
+                    import_block.end_index = idx - 2;
                     result.push(import_block.clone());
                     import_block = ImportBlock::default();
                 }
@@ -134,4 +134,58 @@ pub mod test {
         let processor = ImportProcessor::new();
         assert_debug_snapshot!(processor.find_all_imports(content))
     }
+
+    #[test]
+    fn one_block_many_imports() {
+        let content = r#"
+            use crate::import_manager::ImportProcessor;
+            // todo remove
+            use crate::Config;
+            use eyre::{Context, Result};
+            use ignore::gitignore::{Gitignore, GitignoreBuilder};
+
+            use std::path::{Path, PathBuf};
+            use crate::import_manager::Import::{
+                MultiLine,
+                SingleLine
+            };
+
+            use std::ffi::OsStr;
+            use ignore::Walk;
+
+            pub fn main() {
+                println!("test");
+            }
+        "#;
+        let processor = ImportProcessor::new();
+        assert_debug_snapshot!(processor.find_all_imports(content))
+    }
+
+    #[test]
+    fn three_blocks_many_imports() {
+        let content = r#"
+            use crate::import_manager::ImportProcessor;
+            use crate::Config;
+            use eyre::{Context, Result};
+
+            pub mod test {
+                use ignore::gitignore::{Gitignore, GitignoreBuilder};
+
+                use std::path::{Path, PathBuf};
+                use crate::import_manager::Import::{
+                    MultiLine,
+                    SingleLine
+                };
+            }
+
+            pub mod test2 {
+                use std::ffi::OsStr;
+                use ignore::Walk;
+
+            }
+        "#;
+        let processor = ImportProcessor::new();
+        assert_debug_snapshot!(processor.find_all_imports(content))
+    }
+
 }

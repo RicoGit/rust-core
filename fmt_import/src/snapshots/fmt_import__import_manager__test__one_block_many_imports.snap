@@ -1,0 +1,37 @@
+---
+source: fmt_import/src/import_manager.rs
+expression: processor.find_all_imports(content)
+---
+[
+    ImportBlock {
+        start_idx: 1,
+        end_index: 14,
+        imports: [
+            SingleLine {
+                idx: 1,
+            },
+            SingleLine {
+                idx: 3,
+            },
+            SingleLine {
+                idx: 4,
+            },
+            SingleLine {
+                idx: 5,
+            },
+            SingleLine {
+                idx: 7,
+            },
+            MultiLine {
+                start_idx: 8,
+                end_idx: 11,
+            },
+            SingleLine {
+                idx: 13,
+            },
+            SingleLine {
+                idx: 14,
+            },
+        ],
+    },
+]
