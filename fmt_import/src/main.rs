@@ -1,24 +1,26 @@
-mod rust_file_stream;
+mod import_manager;
+mod rust_file_walker;
 
+use eyre::Result;
+use serde_derive::Deserialize;
+use std::collections::{HashMap, VecDeque};
 use std::{
-    io::{self, Read},
     fs::File,
+    io::{self, Read},
     path::Path,
 };
-use eyre::Result;
-use std::collections::{HashMap, VecDeque};
-use serde_derive::Deserialize;
 
+use crate::import_manager::ImportProcessor;
+use crate::rust_file_walker::FileProcessor;
 use std::path::PathBuf;
 use structopt::StructOpt;
-use crate::rust_file_stream::{FileProcessor, ImportProcessor};
 
 #[derive(StructOpt, Debug)]
 struct Opt {
     /// Input folder for grouping
     #[structopt(short, long, default_value = ".", parse(from_os_str))]
     input: PathBuf,
-                                                                   
+
     /// Config file with defined rules of grouping imports
     #[structopt(short, long, default_value = ".fmt_import.toml", parse(from_os_str))]
     config: PathBuf,
@@ -27,7 +29,7 @@ struct Opt {
 #[derive(Deserialize, Debug)]
 pub struct Config {
     /// Ignored folders and files
-    ignore: Vec<String>
+    ignore: Vec<String>,
 }
 
 fn main() -> Result<()> {
@@ -37,7 +39,8 @@ fn main() -> Result<()> {
     let import_processor = ImportProcessor {};
     let file_processor = FileProcessor::new(opt.input, config, import_processor)?;
 
-    file_processor.start();
+    let affected = file_processor.start()?;
+    println!("Affected files: {}", affected);
 
     Ok(())
 }

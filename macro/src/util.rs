@@ -1,4 +1,3 @@
-
 /// Counts input tokens (complexity log(n))
 #[macro_export]
 macro_rules! count_tts {
@@ -7,19 +6,19 @@ macro_rules! count_tts {
     ($($a:tt $even:tt)*) => { count_tts!($($a)*) << 1 };
 }
 
-
 /// Returns specified block only if condition is true
 #[macro_export]
 macro_rules! conditional_block {
-    (true, $block:tt) => { $block };
-    (false, $block:tt) => { };
+    (true, $block:tt) => {
+        $block
+    };
+    (false, $block:tt) => {};
 }
-
 
 #[cfg(test)]
 mod tests {
     // cargo expand -p macro --lib --tests
-    
+
     #[test]
     fn count_tts_test() {
         assert_eq!(count_tts!(1), 1);
